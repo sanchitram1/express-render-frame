@@ -19,7 +19,14 @@ app.get("/", (req, res) => {
         <meta property="fc:frame:image" content="${preimage}" />
         <meta property="fc:frame:button:1" content="Listen to my song" />
         <meta property="fc:frame:post_url" content="https://express-render-frame.onrender.com/listen" />
+        <title>Express Render Frame</title>
     </head>
+    <body>
+        <h1>Express Render Frame</h1>
+        <form action="/listen" method="post">
+            <input type="submit" value="Listen to my song" />
+        </form>
+    </body>
   </html>
   `;
   res.status(200).setHeader("Content-Type", "text/html").send(body);
@@ -32,8 +39,11 @@ app.post("/listen", (req, res) => {
     <head>
         <meta charSet="utf-8"/>
         <meta name="viewport" content="width=device-width"/>
+        <meta property="og:title" content="My Song" />
+        <meta property='og:image' content=${postimage} />
         <meta property="fc:frame" content="vNext" />
         <meta property="fc:frame:image" content="${postimage}" />
+        <title>Express Render Frame post listen</title>
     </head>
   </html>
   `;
